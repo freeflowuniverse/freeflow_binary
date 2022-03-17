@@ -6,3 +6,9 @@ sudo chown `whoami`:staff  /usr/local/lib/libcrypto.1.1.dylib
 mkdir -p ~/fftools/
 cp publishtools ~/fftools/fftools
 cp redis-server ~/fftools/
+
+sed '/fftools/d' ~/.zprofile > /tmp/1 && mv /tmp/1 ~/.zprofile
+
+cat << EOF >> ~/.zprofile
+export PATH="\$PATH:\$HOME/fftools"
+EOF
